@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ariba Malik – UX/UI Designer Portfolio</title>
+<meta name="description" content="Portfolio of Ariba Malik, a junior UX/UI designer in Islamabad, Pakistan, designing mobile and web experiences.">
+<meta name="theme-color" content="#0B0A0F">
+<meta property="og:title" content="Ariba Malik – UX/UI Designer Portfolio">
+<meta property="og:description" content="Junior UX/UI designer crafting thoughtful mobile and web experiences.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/starbucks.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230B0A0F'/%3E%3Ccircle cx='32' cy='32' r='12' fill='%23FF4FA3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+:root{--bg:#0B0A0F;--surface:#14121A;--surface2:#1B1822;--line:#2B2733;--text:#F5F2F8;--muted:#A8A1B3;--accent:#FF4FA3}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.5;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:'Space Grotesk',Inter,sans-serif;margin:0;letter-spacing:-0.02em}
+p{margin:0}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px;position:relative}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(11,10,15,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.03em;color:var(--text)}
+.logo i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--accent);margin-left:3px}
+.links{display:flex;gap:34px}
+.links a{color:var(--muted);font-size:15px;font-weight:500;position:relative;padding:10px 0;transition:color .2s}
+.links a::after{content:"";position:absolute;left:0;bottom:4px;height:2px;width:0;background:var(--accent);transition:width .25s}
+.links a:hover{color:#fff}
+.links a:hover::after{width:100%}
+.burger{display:none;width:48px;height:48px;border-radius:14px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer;align-items:center;justify-content:center;transition:border-color .2s}
+.burger:hover{border-color:var(--accent)}
+.burger .x{display:none}
+.burger[aria-expanded="true"] .x{display:block}
+.burger[aria-expanded="true"] .bars{display:none}
+.mmenu{display:flex;flex-direction:column;padding:8px 32px 24px;border-top:1px solid var(--line);animation:fadeUp .3s ease both}
+.mmenu[hidden]{display:none}
+.mmenu a{padding:16px 0;border-bottom:1px solid var(--line);font-size:18px;font-weight:500}
+.mmenu a:hover{color:var(--accent)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 28px;border-radius:999px;font-weight:600;font-size:15px;border:1px solid transparent;cursor:pointer;font-family:inherit;transition:transform .2s,box-shadow .25s,border-color .2s,color .2s,background .2s}
+.btn svg{transition:transform .2s}
+.btn:hover svg{transform:translateX(4px)}
+.btn-pink{background:var(--accent);color:#0B0A0F}
+.btn-pink:hover{transform:translateY(-2px);box-shadow:0 12px 32px color-mix(in srgb,var(--accent) 42%,transparent)}
+.btn-ghost{border-color:#3A3444;color:var(--text);background:transparent}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+
+/* hero */
+.hero{position:relative;padding:88px 0 72px;overflow:hidden}
+.glow{position:absolute;border-radius:50%;pointer-events:none;filter:blur(24px)}
+.glow-a{width:560px;height:560px;top:-120px;right:-60px;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 34%,transparent),transparent 66%);animation:drift 14s ease-in-out infinite alternate}
+.glow-b{width:380px;height:380px;bottom:-140px;left:-80px;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 18%,transparent),transparent 66%);animation:drift 18s ease-in-out infinite alternate-reverse}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:48px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 18px;border:1px solid var(--line);border-radius:999px;font-size:14px;color:var(--muted);background:rgba(20,18,26,.7)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s ease-out infinite}
+.hero h1{font-size:clamp(42px,6.2vw,80px);line-height:1.02;font-weight:700;margin:26px 0 24px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.lead{font-size:19px;line-height:1.65;color:var(--muted);max-width:540px}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+.rise{animation:fadeUp .8s cubic-bezier(.2,.7,.2,1) both}
+.hv{position:relative;height:560px;display:flex;align-items:center;justify-content:center}
+.phone{position:relative;z-index:2;width:272px;height:480px;border-radius:42px;background:var(--surface);border:1px solid #3A3444;padding:20px;box-shadow:0 36px 90px rgba(0,0,0,.55),0 0 0 9px rgba(255,255,255,.02);animation:float 7s ease-in-out infinite;display:flex;flex-direction:column}
+.chip-f{position:absolute;z-index:3;display:flex;align-items:center;gap:10px;padding:11px 18px;border-radius:16px;background:rgba(27,24,34,.92);border:1px solid #3A3444;font-size:14px;font-weight:500;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 12px 30px rgba(0,0,0,.4)}
+.chip-f b{width:10px;height:10px;border-radius:3px;background:var(--accent);display:block}
+
+/* marquee */
+.marq{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:30px 0;background:var(--surface)}
+.track{display:flex;width:max-content;animation:scroll 34s linear infinite}
+.track:hover{animation-play-state:paused}
+.grp{display:flex;align-items:center;flex-shrink:0}
+.tool{padding:0 30px;font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:500;color:var(--muted);white-space:nowrap;transition:color .2s}
+.tool:hover{color:var(--accent)}
+.sep{width:8px;height:8px;background:var(--accent);transform:rotate(45deg);flex-shrink:0}
+
+/* sections */
+.sec{padding:116px 0}
+.kicker{display:inline-flex;align-items:center;gap:12px;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.kicker::before{content:"";width:28px;height:2px;background:var(--accent);border-radius:2px}
+.h2{font-size:clamp(32px,4.4vw,54px);line-height:1.08;font-weight:700;margin-top:18px}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:minmax(0,860px)}
+.about-p{font-size:18px;line-height:1.7;color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:36px}
+.fact{padding:22px;border-radius:20px;background:var(--surface);border:1px solid var(--line);transition:transform .25s,border-color .25s}
+.fact:hover{transform:translateY(-4px);border-color:var(--accent)}
+.fact small{display:block;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.fact span{font-size:16px;font-weight:500}
+
+/* services */
+.band{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:56px}
+.svc{position:relative;padding:34px;border-radius:26px;background:var(--bg);border:1px solid var(--line);overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s}
+.svc:hover{transform:translateY(-8px);border-color:var(--accent);box-shadow:0 24px 60px color-mix(in srgb,var(--accent) 16%,transparent)}
+.ico{width:58px;height:58px;border-radius:18px;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent);transition:background .3s,color .3s,transform .3s}
+.svc:hover .ico{background:var(--accent);color:#0B0A0F;transform:rotate(-8deg) scale(1.05)}
+.num{position:absolute;top:30px;right:34px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--muted)}
+.svc h3{font-size:23px;font-weight:600;margin:26px 0 12px}
+.svc p{color:var(--muted);font-size:16px;line-height:1.65}
+
+/* projects */
+.proj-head{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-end;justify-content:space-between}
+.filters{display:flex;flex-wrap:wrap;gap:10px}
+.pill{min-height:44px;padding:0 22px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);font:inherit;font-size:15px;font-weight:500;cursor:pointer;transition:color .2s,border-color .2s,background .2s,transform .2s}
+.pill:hover{color:var(--text);border-color:#4A4356;transform:translateY(-2px)}
+.pill.on{background:var(--accent);border-color:var(--accent);color:#0B0A0F}
+.proj-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;margin-top:48px}
+.proj{border-radius:30px;background:var(--surface);border:1px solid var(--line);overflow:hidden;transition:transform .35s,border-color .3s,box-shadow .35s;animation:fadeUp .6s cubic-bezier(.2,.7,.2,1) both}
+.proj[hidden]{display:none}
+.proj:hover{transform:translateY(-8px);border-color:var(--accent);box-shadow:0 28px 70px color-mix(in srgb,var(--accent) 16%,transparent)}
+.cover{display:block;aspect-ratio:16/9;position:relative;overflow:hidden;background:var(--surface2);border-bottom:1px solid var(--line)}
+.cover-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.proj:hover .cover-img{transform:scale(1.05)}
+.proj-body{padding:30px 32px 32px;display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
+.cat{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.proj h3{font-size:28px;font-weight:600;margin:10px 0 10px}
+.proj p{color:var(--muted);font-size:16px;line-height:1.6}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.tag{padding:6px 14px;border-radius:999px;background:var(--surface2);border:1px solid var(--line);font-size:13px;color:var(--muted)}
+.go{flex-shrink:0;width:52px;height:52px;border-radius:50%;border:1px solid #3A3444;display:flex;align-items:center;justify-content:center;color:var(--text);transition:transform .3s,background .3s,color .3s,border-color .3s}
+.proj:hover .go,.go:hover{background:var(--accent);border-color:var(--accent);color:#0B0A0F;transform:rotate(-45deg)}
+
+/* contact */
+.contact{position:relative;overflow:hidden}
+.contact-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:72px;align-items:start}
+.cinfo{display:flex;flex-direction:column;gap:14px;margin-top:36px}
+.crow{display:flex;align-items:center;gap:16px;padding:14px 18px;border-radius:18px;border:1px solid var(--line);background:var(--bg);color:var(--text);transition:border-color .2s,transform .2s}
+a.crow:hover{border-color:var(--accent);transform:translateX(6px)}
+.crow .ico{width:46px;height:46px;border-radius:14px;flex-shrink:0}
+.crow small{display:block;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.crow span{font-size:17px;font-weight:500;word-break:break-word}
+.form{padding:40px;border-radius:30px;background:var(--surface);border:1px solid var(--line)}
+.lbl{display:block;font-size:14px;font-weight:500;margin:0 0 8px}
+.field{width:100%;min-height:54px;padding:14px 18px;border-radius:14px;background:var(--bg);border:1px solid var(--line);color:var(--text);font:inherit;font-size:16px;transition:border-color .2s,box-shadow .2s}
+.field::placeholder{color:#8C8598}
+.field:hover{border-color:#4A4356}
+.field:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent)}
+.field.bad{border-color:#FF7A90}
+textarea.field{min-height:150px;resize:vertical;line-height:1.55}
+.errmsg{color:#FF8CA0;font-size:14px;margin-top:8px}
+.errmsg:empty{display:none}
+.grow{margin-bottom:22px}
+.hp{position:absolute;left:-9999px;opacity:0}
+.okbox{text-align:center;padding:36px 8px;animation:fadeUp .6s ease both}
+.okbox[hidden]{display:none}
+.okic{width:76px;height:76px;border-radius:50%;background:var(--accent);color:#0B0A0F;display:flex;align-items:center;justify-content:center;margin:0 auto 24px}
+
+/* footer */
+.foot{border-top:1px solid var(--line);padding:34px 0}
+.foot-in{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;color:var(--muted);font-size:15px}
+.foot a:hover{color:var(--accent)}
+
+/* motion */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(-50px,40px) scale(1.15)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 60%,transparent)}100%{box-shadow:0 0 0 12px transparent}}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* responsive */
+@media (min-width:861px){.mmenu{display:none}}
+@media (max-width:1000px){
+  .svc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .contact-grid{gap:48px}
+}
+@media (max-width:900px){
+  .hero{padding:56px 0 48px}
+  .hero-grid{grid-template-columns:minmax(0,1fr);gap:24px}
+  .contact-grid{grid-template-columns:minmax(0,1fr)}
+  .proj-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:860px){
+  .links,.nav-cta{display:none}
+  .burger{display:inline-flex}
+}
+@media (max-width:640px){
+  .wrap{padding:0 20px}
+  .mmenu{padding:8px 20px 24px}
+  .sec{padding:76px 0}
+  .svc-grid{grid-template-columns:minmax(0,1fr)}
+  .facts{grid-template-columns:minmax(0,1fr)}
+  .hv{height:480px}
+  .phone{transform:scale(.88);animation:none}
+  .form{padding:26px 22px}
+  .proj-body{padding:24px 22px 26px}
+  .lead{font-size:17px}
+  .cta-row .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap">
+    <div class="nav-in">
+      <a class="logo" href="#top" aria-label="Ariba Malik, home">ariba<i></i></a>
+      <nav class="links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn-pink nav-cta" href="#contact">Let's talk</a>
+      <button type="button" class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mmenu">
+        <svg class="bars" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="x" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mmenu" id="mmenu" hidden>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="glow glow-a" aria-hidden="true"></div>
+  <div class="glow glow-b" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow rise"><span class="dot"></span>Open to new opportunities</div>
+        <h1 class="rise" style="animation-delay:.1s">Designing calm, human interfaces people <em>love</em> to use.</h1>
+        <p class="lead rise" style="animation-delay:.2s">Hi, I'm Ariba Malik, a junior UX/UI designer crafting thoughtful mobile and web experiences, from first research to polished, tested prototypes.</p>
+        <div class="cta-row rise" style="animation-delay:.3s">
+          <a class="btn btn-pink" href="#projects">View my work
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="hv rise" style="animation-delay:.25s" aria-hidden="true">
+        <div class="chip-f" style="top:56px;left:0;animation:float 6s ease-in-out infinite"><b></b>Wireframes</div>
+        <div class="chip-f" style="top:200px;right:-6px;animation:float 5s ease-in-out infinite;animation-delay:-2s"><b></b>Prototype</div>
+        <div class="chip-f" style="bottom:70px;left:6px;animation:float 7s ease-in-out infinite;animation-delay:-4s"><b></b>Design system</div>
+        <div class="phone">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:22px">
+            <div style="width:36px;height:36px;border-radius:50%;background:var(--accent)"></div>
+            <div style="width:72px;height:10px;border-radius:6px;background:#2B2733"></div>
+          </div>
+          <div style="width:62%;height:16px;border-radius:8px;background:#3A3444;margin-bottom:10px"></div>
+          <div style="width:40%;height:10px;border-radius:6px;background:#2B2733;margin-bottom:22px"></div>
+          <div style="height:132px;border-radius:24px;background:var(--accent);padding:18px;display:flex;flex-direction:column;justify-content:space-between">
+            <div style="width:46%;height:10px;border-radius:6px;background:rgba(11,10,15,.45)"></div>
+            <div style="display:flex;align-items:flex-end;gap:10px;height:56px">
+              <div style="flex:1;height:40%;border-radius:6px;background:rgba(11,10,15,.35)"></div>
+              <div style="flex:1;height:70%;border-radius:6px;background:rgba(11,10,15,.55)"></div>
+              <div style="flex:1;height:55%;border-radius:6px;background:rgba(11,10,15,.35)"></div>
+              <div style="flex:1;height:100%;border-radius:6px;background:rgba(11,10,15,.75)"></div>
+              <div style="flex:1;height:80%;border-radius:6px;background:rgba(11,10,15,.35)"></div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;margin-top:20px">
+            <div style="width:40px;height:40px;border-radius:14px;background:#2B2733"></div>
+            <div style="flex:1"><div style="width:70%;height:10px;border-radius:6px;background:#3A3444;margin-bottom:8px"></div><div style="width:45%;height:8px;border-radius:5px;background:#2B2733"></div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;margin-top:16px">
+            <div style="width:40px;height:40px;border-radius:14px;background:#2B2733"></div>
+            <div style="flex:1"><div style="width:60%;height:10px;border-radius:6px;background:#3A3444;margin-bottom:8px"></div><div style="width:38%;height:8px;border-radius:5px;background:#2B2733"></div></div>
+          </div>
+          <div style="margin-top:auto;height:46px;border-radius:23px;background:var(--bg);border:1px solid var(--line);display:flex;align-items:center;justify-content:space-around;padding:0 18px">
+            <div style="width:10px;height:10px;border-radius:50%;background:var(--accent)"></div>
+            <div style="width:10px;height:10px;border-radius:50%;background:#3A3444"></div>
+            <div style="width:10px;height:10px;border-radius:50%;background:#3A3444"></div>
+            <div style="width:10px;height:10px;border-radius:50%;background:#3A3444"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS MARQUEE -->
+<div class="marq" aria-label="Design tools I use">
+  <div class="track">
+    <div class="grp">
+      <span class="tool">Figma</span><span class="sep" aria-hidden="true"></span>
+      <span class="tool">FigJam</span><span class="sep" aria-hidden="true"></span>
+      <span class="tool">Adobe XD</span><span class="sep" aria-hidden="true"></span>
+      <span class="tool">Illustrator</span><span class="sep" aria-hidden="true"></span>
+      <span class="tool">Photoshop</span><span class="sep" aria-hidden="true"></span>
+      <span class="tool">Notion</span><span class="sep" aria-hidden="true"></span>
+      <span class="tool">Maze</span><span class="sep" aria-hidden="true"></span>
+      <span class="tool">Miro</span><span class="sep" aria-hidden="true"></span>
+    </div>
+    <div class="grp" aria-hidden="true">
+      <span class="tool">Figma</span><span class="sep"></span>
+      <span class="tool">FigJam</span><span class="sep"></span>
+      <span class="tool">Adobe XD</span><span class="sep"></span>
+      <span class="tool">Illustrator</span><span class="sep"></span>
+      <span class="tool">Photoshop</span><span class="sep"></span>
+      <span class="tool">Notion</span><span class="sep"></span>
+      <span class="tool">Maze</span><span class="sep"></span>
+      <span class="tool">Miro</span><span class="sep"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <span class="kicker">About me</span>
+        <h2 class="h2">I turn messy problems into simple, delightful interfaces.</h2>
+        <p class="about-p" style="margin-top:24px">I'm Ariba, a junior UX/UI designer who loves understanding people before pixels. I care about research, accessibility and the small details that make a product feel considered and easy to trust.</p>
+        <p class="about-p" style="margin-top:16px">I'm currently building my craft through hands-on projects, always learning, and excited to join a team where I can grow while shipping thoughtful work.</p>
+        <div class="facts">
+          <div class="fact"><small>Focus</small><span>UX research &amp; UI design</span></div>
+          <div class="fact"><small>Tools</small><span>Figma, FigJam &amp; Illustrator</span></div>
+          <div class="fact"><small>Approach</small><span>User-centred &amp; accessible</span></div>
+          <div class="fact"><small>Status</small><span>Open to roles &amp; freelance</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec band" id="services">
+  <div class="wrap">
+    <span class="kicker">Services</span>
+    <h2 class="h2" style="max-width:680px">What I can design for you.</h2>
+    <div class="svc-grid">
+      <article class="svc">
+        <span class="num">01</span>
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>
+        <h3>UX Research</h3>
+        <p>User interviews, surveys, competitor audits and journey mapping to uncover what people truly need.</p>
+      </article>
+      <article class="svc">
+        <span class="num">02</span>
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M9 9v11"/></svg></div>
+        <h3>UI Design</h3>
+        <p>Clean, modern visual design with strong hierarchy, thoughtful typography and accessible colour.</p>
+      </article>
+      <article class="svc">
+        <span class="num">03</span>
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3l14 7-6 2-2 6z"/></svg></div>
+        <h3>Wireframes &amp; Prototyping</h3>
+        <p>From low-fidelity flows to clickable prototypes you can test with real users before development.</p>
+      </article>
+      <article class="svc">
+        <span class="num">04</span>
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg></div>
+        <h3>Design Systems</h3>
+        <p>Reusable components, tokens and guidelines that keep products consistent and speed up handoff.</p>
+      </article>
+      <article class="svc">
+        <span class="num">05</span>
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="3"/><path d="M11 18h2"/></svg></div>
+        <h3>Mobile App Design</h3>
+        <p>Intuitive iOS and Android experiences that feel native, smooth and easy to use one-handed.</p>
+      </article>
+      <article class="svc">
+        <span class="num">06</span>
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div>
+        <h3>Web &amp; Landing Pages</h3>
+        <p>Responsive websites and high-converting landing pages designed to look great on every screen.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="sec" id="projects">
+  <div class="wrap">
+    <div class="proj-head">
+      <div>
+        <span class="kicker">Selected work</span>
+        <h2 class="h2">Projects I'm proud of.</h2>
+      </div>
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button type="button" class="pill on" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="pill" data-filter="Food &amp; Drink" aria-pressed="false">Food &amp; Drink</button>
+        <button type="button" class="pill" data-filter="Automotive" aria-pressed="false">Automotive</button>
+        <button type="button" class="pill" data-filter="Fitness" aria-pressed="false">Fitness</button>
+      </div>
+    </div>
+
+    <div class="proj-grid">
+
+      <article class="proj" data-cat="Food &amp; Drink">
+        <a class="cover" href="https://www.figma.com/design/K89yNgNVRBcYH9Be4t9myd/Starbucks?node-id=0-1&amp;p=f&amp;t=Tog0p6tolYlmGqAa-0" target="_blank" rel="noopener" aria-label="Open Starbucks App in Figma">
+          <img class="cover-img" src="starbucks.png" alt="Starbucks App screens" width="1280" height="720" loading="lazy">
+        </a>
+        <div class="proj-body">
+          <div>
+            <span class="cat">Food &amp; Drink</span>
+            <h3>Starbucks App</h3>
+            <p>A warm, autumn-inspired coffee ordering app with seasonal offers, drink categories and popular picks.</p>
+            <div class="tags"><span class="tag">Mobile App</span><span class="tag">UI Design</span><span class="tag">Figma</span></div>
+          </div>
+          <a class="go" href="https://www.figma.com/design/K89yNgNVRBcYH9Be4t9myd/Starbucks?node-id=0-1&amp;p=f&amp;t=Tog0p6tolYlmGqAa-0" target="_blank" rel="noopener" aria-label="View Starbucks App in Figma">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="proj" data-cat="Automotive">
+        <a class="cover" href="https://www.figma.com/design/2h5uKyqZJ4gUOI4RAGq5Mb/rental-car?node-id=0-1&amp;p=f&amp;t=iw58I3RYPMGIkilG-0" target="_blank" rel="noopener" aria-label="Open Rental Car App in Figma">
+          <img class="cover-img" src="rental-car.png" alt="Rental Car App screens" width="1280" height="720" loading="lazy">
+        </a>
+        <div class="proj-body">
+          <div>
+            <span class="cat">Automotive</span>
+            <h3>Rental Car App</h3>
+            <p>A luxury car rental experience to browse top brands, compare popular vehicles and view full car details.</p>
+            <div class="tags"><span class="tag">Mobile App</span><span class="tag">UI Design</span><span class="tag">Figma</span></div>
+          </div>
+          <a class="go" href="https://www.figma.com/design/2h5uKyqZJ4gUOI4RAGq5Mb/rental-car?node-id=0-1&amp;p=f&amp;t=iw58I3RYPMGIkilG-0" target="_blank" rel="noopener" aria-label="View Rental Car App in Figma">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="proj" data-cat="Fitness">
+        <a class="cover" href="https://www.figma.com/design/CcWIsHBMBdcJFjeZrkwiBc/Motivv-gym-app?node-id=0-1&amp;p=f&amp;t=S18rnExeUXv3fAf4-0" target="_blank" rel="noopener" aria-label="Open Motivv Gym App in Figma">
+          <img class="cover-img" src="motivv-gym.png" alt="Motivv Gym App screens" width="1280" height="720" loading="lazy">
+        </a>
+        <div class="proj-body">
+          <div>
+            <span class="cat">Fitness</span>
+            <h3>Motivv Gym App</h3>
+            <p>A bold dark-mode fitness app with workout categories, featured plans and progress tracking.</p>
+            <div class="tags"><span class="tag">Mobile App</span><span class="tag">UI Design</span><span class="tag">Figma</span></div>
+          </div>
+          <a class="go" href="https://www.figma.com/design/CcWIsHBMBdcJFjeZrkwiBc/Motivv-gym-app?node-id=0-1&amp;p=f&amp;t=S18rnExeUXv3fAf4-0" target="_blank" rel="noopener" aria-label="View Motivv Gym App in Figma">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="proj" data-cat="Food &amp; Drink">
+        <a class="cover" href="https://www.figma.com/design/RkwqVPGqu532aKOjZpWol0/Cafe-D--Grill-App?node-id=0-1&amp;p=f&amp;t=4duncO4YrdmUDHeH-0" target="_blank" rel="noopener" aria-label="Open Cafe D'Grill App in Figma">
+          <img class="cover-img" src="cafe-dgrill.png" alt="Cafe D'Grill App screens" width="1280" height="720" loading="lazy">
+        </a>
+        <div class="proj-body">
+          <div>
+            <span class="cat">Food &amp; Drink</span>
+            <h3>Cafe D’Grill App</h3>
+            <p>A food ordering app with location setup, a rich menu, deals and a smooth sign-up flow.</p>
+            <div class="tags"><span class="tag">Mobile App</span><span class="tag">UI Design</span><span class="tag">Figma</span></div>
+          </div>
+          <a class="go" href="https://www.figma.com/design/RkwqVPGqu532aKOjZpWol0/Cafe-D--Grill-App?node-id=0-1&amp;p=f&amp;t=4duncO4YrdmUDHeH-0" target="_blank" rel="noopener" aria-label="View Cafe D'Grill App in Figma">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec band contact" id="contact" style="border-bottom:0">
+  <div class="glow" aria-hidden="true" style="width:520px;height:520px;left:-200px;top:-120px;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 22%,transparent),transparent 66%)"></div>
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <span class="kicker">Contact</span>
+        <h2 class="h2">Let's build something great together.</h2>
+        <p class="about-p" style="margin-top:24px;max-width:460px">Have a project, an internship or a role in mind? Send me a message and I'll get back to you as soon as I can.</p>
+        <div class="cinfo">
+          <a class="crow" href="mailto:aribamalik024@gmail.com">
+            <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></div>
+            <div><small>Email</small><span>aribamalik024@gmail.com</span></div>
+          </a>
+          <a class="crow" href="tel:+923240544118">
+            <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+            <div><small>Phone</small><span>0324 0544118</span></div>
+          </a>
+          <div class="crow">
+            <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div>
+            <div><small>Location</small><span>Islamabad, Pakistan</span></div>
+          </div>
+          <a class="crow" href="https://www.linkedin.com/in/aribamalik22/" target="_blank" rel="noopener">
+            <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 10v7M8 7v.01M12 17v-4a2.5 2.5 0 0 1 5 0v4M12 10v7"/></svg></div>
+            <div><small>LinkedIn</small><span>linkedin.com/in/aribamalik22</span></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="form">
+        <form id="contact-form" name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="contact">
+          <p class="hp"><label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+          <div class="grow">
+            <label class="lbl" for="f-name">Your name</label>
+            <input id="f-name" name="name" class="field" type="text" placeholder="Jane Doe" autocomplete="name">
+            <p class="errmsg" id="e-name" role="alert"></p>
+          </div>
+          <div class="grow">
+            <label class="lbl" for="f-email">Email address</label>
+            <input id="f-email" name="email" class="field" type="email" placeholder="jane@company.com" autocomplete="email">
+            <p class="errmsg" id="e-email" role="alert"></p>
+          </div>
+          <div class="grow">
+            <label class="lbl" for="f-msg">Message</label>
+            <textarea id="f-msg" name="message" class="field" placeholder="Tell me about your project..."></textarea>
+            <p class="errmsg" id="e-message" role="alert"></p>
+          </div>
+          <button type="submit" class="btn btn-pink" style="width:100%" id="send-btn">Send message
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </form>
+        <div class="okbox" id="ok" role="status" hidden>
+          <div class="okic"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+          <h3 style="font-size:28px;font-weight:600;margin-bottom:12px" id="ok-title">Thank you!</h3>
+          <p class="about-p" style="margin-bottom:28px" id="ok-text">Your message has been sent. I'll reply as soon as I can.</p>
+          <button type="button" class="btn btn-ghost" id="again">Send another message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-in">
+      <span>© 2026 Ariba Malik. Designed with care.</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Mobile menu
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mmenu');
+  function setMenu(open) {
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menu.hidden = !open;
+  }
+  burger.addEventListener('click', function () { setMenu(menu.hidden); });
+  menu.addEventListener('click', function (e) { if (e.target.tagName === 'A') setMenu(false); });
+
+  // Project filters
+  var pills = document.querySelectorAll('.pill');
+  var cards = document.querySelectorAll('.proj');
+  pills.forEach(function (pill) {
+    pill.addEventListener('click', function () {
+      var f = pill.getAttribute('data-filter');
+      pills.forEach(function (p) {
+        var on = p === pill;
+        p.classList.toggle('on', on);
+        p.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      cards.forEach(function (c) {
+        c.hidden = !(f === 'all' || c.getAttribute('data-cat') === f);
+      });
+    });
+  });
+
+  // Contact form (Netlify Forms, with mailto fallback)
+  var form = document.getElementById('contact-form');
+  var ok = document.getElementById('ok');
+  var btn = document.getElementById('send-btn');
+  var EMAIL = 'aribamalik024@gmail.com';
+
+  function setErr(id, msg, input) {
+    document.getElementById('e-' + id).textContent = msg || '';
+    input.classList.toggle('bad', !!msg);
+  }
+  ['name', 'email', 'message'].forEach(function (k) {
+    form.elements[k].addEventListener('input', function () { setErr(k, '', form.elements[k]); });
+  });
+
+  function showThanks(name, viaMail) {
+    form.hidden = true;
+    ok.hidden = false;
+    document.getElementById('ok-title').textContent = 'Thank you' + (name ? ', ' + name : '') + '!';
+    document.getElementById('ok-text').textContent = viaMail
+      ? 'Your email app should open with the message ready to send. You can also write to me directly at ' + EMAIL + '.'
+      : "Your message has been sent. I'll reply as soon as I can.";
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = form.elements;
+    var name = f.name.value.trim(), email = f.email.value.trim(), msg = f.message.value.trim();
+    var bad = false;
+    if (!name) { setErr('name', 'Please tell me your name.', f.name); bad = true; }
+    if (!email) { setErr('email', 'Please add your email address.', f.email); bad = true; }
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { setErr('email', 'That email address doesn’t look right.', f.email); bad = true; }
+    if (msg.length < 10) { setErr('message', 'Please write a little more (at least 10 characters).', f.message); bad = true; }
+    if (bad) return;
+
+    var first = name.split(' ')[0];
+    btn.disabled = true;
+
+    var body = new URLSearchParams(new FormData(form)).toString();
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body })
+      .then(function (r) {
+        if (!r.ok) throw new Error('bad status');
+        showThanks(first, false);
+      })
+      .catch(function () {
+        // Not on Netlify (or the request failed): fall back to the visitor's email app
+        var href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Portfolio enquiry from ' + name) +
+          '&body=' + encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + msg);
+        window.location.href = href;
+        showThanks(first, true);
+      })
+      .then(function () { btn.disabled = false; });
+  });
+
+  document.getElementById('again').addEventListener('click', function () {
+    form.reset();
+    form.hidden = false;
+    ok.hidden = true;
+  });
+})();
+</script>
+</body>
+</html>
